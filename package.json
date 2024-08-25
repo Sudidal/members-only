@@ -1,0 +1,26 @@
+{
+  "type": "module",
+  "name": "members-only",
+  "version": "1.0.0",
+  "description": "wait wait.. only members allowed",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-watch": "node --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-pg-simple": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.2.0",
+    "passport": "^0.7.0",
+    "pg": "^8.12.0"
+  }
+}
