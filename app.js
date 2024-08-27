@@ -41,6 +41,7 @@ app.get("/", (req, res) => {
   }
   res.render("index", { user: req.user });
 });
+
 app.use("/signup", signUpRouter);
 app.use("/signin", signInRouter);
 
