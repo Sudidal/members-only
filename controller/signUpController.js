@@ -6,6 +6,7 @@ class SignUpController {
   constructor() {}
 
   signUpGet(req, res, next) {
+    if (req.user) return res.redirect("/");
     console.log(req.body.errorMessages);
     res.render("signUpForm");
   }
@@ -29,7 +30,7 @@ class SignUpController {
           password: hashedPassword,
         };
         await queries.insertUser(values, next);
-        res.redirect("/");
+        res.redirect("/signin");
       } catch (err) {
         return next(err);
       }

@@ -19,7 +19,7 @@ class Queries {
 
   // --------SELECT queries-------
 
-  async selectUserByUsername(username, next) {
+  async getUserByUsername(username, next) {
     try {
       const { rows } = await pool.query(
         "SELECT * FROM users WHERE username = ($1)",
@@ -30,12 +30,20 @@ class Queries {
       return next(err);
     }
   }
-  async selectUserById(id, next) {
+  async getUserById(id, next) {
     try {
       const { rows } = await pool.query(
         "SELECT * FROM users WHERE user_id = ($1)",
         [id]
       );
+      return rows;
+    } catch (err) {
+      return next(err);
+    }
+  }
+  async getAllMessages(next) {
+    try {
+      const { rows } = await pool.query("SELECT * FROM messages");
       return rows;
     } catch (err) {
       return next(err);

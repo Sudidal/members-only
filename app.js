@@ -7,8 +7,10 @@ import passport from "passport";
 import connectPgSimple from "connect-pg-simple";
 import passportConfig from "./passportConfig.js";
 import pool from "./db/pool.js";
+import { indexRouter } from "./routers/indexRouter.js";
 import { signUpRouter } from "./routers/signUpRouter.js";
 import { signInRouter } from "./routers/signInRouter.js";
+import { signOutRouter } from "./routers/signOutRouter.js";
 
 passportConfig();
 
@@ -35,15 +37,11 @@ app.use(
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  if (!req.user) {
-    return res.redirect("/signin");
-  }
-  res.render("index", { user: req.user });
-});
+app.get("/", indexRouter);
 
 app.use("/signup", signUpRouter);
 app.use("/signin", signInRouter);
+app.use("/signout", signOutRouter);
 
 app.listen(PORT, () =>
   console.log(

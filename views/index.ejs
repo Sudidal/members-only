@@ -7,5 +7,13 @@
 </head>
 <body>
     <h1>Hi, <%= user.username %></h1>
+    <h2>POSTS</h2>
+    <div class="posts-container">
+      <% if(locals.posts) { %>
+      <% posts.forEach(post => { %>
+        <h5><%= post.title %></h5>
+      <% }); %>
+      <% } %>
+    </div>
 </body>
 </html>
