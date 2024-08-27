@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Members Only</title>
 </head>
 <body>
+  <header>
     <h1>Hi, <%= user.username %></h1>
+    <a href="/posts/new">New Post</a>
+    <a href="/signout">Log Out</a>
+  </header>
+  <main>
     <h2>POSTS</h2>
     <div class="posts-container">
-      <% if(locals.posts) { %>
+      <% if(locals.posts?.length > 0) { %>
       <% posts.forEach(post => { %>
         <%- include("partials/post", {post: post}) %>
       <% }); %>
       <% } else { %>
-        <p>Looks like there are no posts yet, be first to create one</p>
+        <p>Looks like there are no posts yet, be first to create one :)))</p>
       <% } %>
     </div>
+  </main>
 </body>
 </html>

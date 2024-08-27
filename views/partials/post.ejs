@@ -2,7 +2,7 @@
   <em>Posted: <%= post.timestamp %> </em>
   <br>
   <em>Author: <%= post.username %> </em>
-  <h4> <%= post.title %></h5>
+  <h4 class="title"> <%= post.title %></h5>
   <p> <%= post.text %></p>
   <% if(admin) { %>
     <a href="/posts/delete/<%= post.message_id %>?admin=<%= adminCode %>">Delete</a>

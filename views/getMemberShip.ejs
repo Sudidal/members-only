@@ -3,29 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>get Membership</title>
 </head>
 <body>
-  <form action="/getmembership" method="post">
-    <h1>You want to become a member?</h1>
-    <p>Easy, But you will have to give some sacrifices</p>
-    <p>First, Agree to our <a href="/getmembership/terms">club's terms</a>, Don't worry, I won't rickroll you ;)</p>
-    <div>
-      <label for="agree">I agree</label>
-      <input id="agree" name="agree" type="checkbox">
-    </div>
-    <p>Second, enter our super secret code: <em> <%=code%> </em></p>
-    <div>
-      <label for="secret">Here ---&gt;</label>
-      <input id="secret" name="secret" type="text">
-    </div>
-    <p>Third, Search for my <a href="https://games-inventory.up.railway.app/home">application solution</a> on TOP and give it a like <em>HINT: It's in the "most liked" list, with the name oxide, you will find it easily</em></p>
-    <p>Isn't it beautiful? <em>&lt;I hope it won't crash suddenly&gt;</em>, unfortunately I'm lazier than styling this project, anyways</p>
-    <div>
-      <label for="like">You've got my -`♡´-</label>
-      <input id="like" name="like" type="checkbox">
-    </div>
-    <button type="submit">Get MemberShip for just 9999$</button>
-  </form>
+  <main>
+    <form action="/getmembership" method="post">
+      <h1>You want to become a member?</h1>
+      <p>Easy, But you will have to give some sacrifices</p>
+      <p>First, Agree to our <a href="/getmembership/terms">club's terms</a>, Don't worry, I won't rickroll you ;)</p>
+      <div>
+        <label for="agree">I agree</label>
+        <input id="agree" name="agree" type="checkbox">
+      </div>
+      <p>Second, enter our super secret code: <em> <%=code%> </em></p>
+      <div>
+        <label for="secret">Here ---&gt;</label>
+        <input id="secret" name="secret" type="text">
+      </div>
+      <p>Third, Search for my <a href="https://games-inventory.up.railway.app/home">application solution</a> on TOP and give it a like <em>HINT: It's in the "most liked" list, with the name oxide, you will find it easily</em></p>
+      <p>Isn't it beautiful? <em>&lt;I hope it won't crash suddenly&gt;</em>, unfortunately I'm lazier than styling this project, anyways</p>
+      <div>
+        <label for="like">You've got my -`♡´-</label>
+        <input id="like" name="like" type="checkbox">
+      </div>
+      <button type="submit">Get MemberShip for just 9999$</button>
+    </form>
+  </main>
 </body>
 </html>
