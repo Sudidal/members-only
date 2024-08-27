@@ -11,8 +11,10 @@
     <div class="posts-container">
       <% if(locals.posts) { %>
       <% posts.forEach(post => { %>
-        <h5><%= post.title %></h5>
+        <%- include("partials/post", {post: post}) %>
       <% }); %>
+      <% } else { %>
+        <p>Looks like there are no posts yet, be first to create one</p>
       <% } %>
     </div>
 </body>

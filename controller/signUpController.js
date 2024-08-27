@@ -29,7 +29,7 @@ class SignUpController {
           userName: data.username,
           password: hashedPassword,
         };
-        await queries.insertUser(values, next);
+        await queries.addUser(values, next);
         res.redirect("/signin");
       } catch (err) {
         return next(err);
@@ -43,18 +43,26 @@ const validateUser = [
   body("first_name")
     .isString()
     .isLength({ min: 1, max: 20 })
+    .trim()
     .withMessage("First name must be between 1 and 20 characters"),
   body("last_name")
     .isString()
     .isLength({ min: 1, max: 20 })
+    .trim()
     .withMessage("Last name must be between 1 and 20 characters"),
   body("username")
     .isString()
     .isLength({ min: 1, max: 20 })
+    .trim()
     .withMessage("Username must be between 1 and 20 characters"),
-  body("password").isString().notEmpty().withMessage("Password can't be empty"),
+  body("password")
+    .isString()
+    .trim()
+    .notEmpty()
+    .withMessage("Password can't be empty"),
   body("confirm_password")
     .isString()
+    .trim()
     .notEmpty()
     .custom((value, { req }) => {
       if (req.body.password === req.body.confirm_password) return true;

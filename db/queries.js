@@ -6,11 +6,21 @@ class Queries {
 
   // --------INSERT queries-------
 
-  async insertUser(values, next) {
+  async addUser(values, next) {
     try {
       await pool.query(
         "INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4)",
         [values.firstName, values.lastName, values.userName, values.password]
+      );
+    } catch (err) {
+      return next(err);
+    }
+  }
+  async addMessage(values, next) {
+    try {
+      await pool.query(
+        "INSERT INTO messages (title, text, timestamp, user_id) VALUES ($1, $2, $3, $4)",
+        [values.title, values.text, values.timestamp, values.user_id]
       );
     } catch (err) {
       return next(err);
@@ -43,7 +53,9 @@ class Queries {
   }
   async getAllMessages(next) {
     try {
-      const { rows } = await pool.query("SELECT * FROM messages");
+      const { rows } = await pool.query(
+        "SELECT title, text, to_char(timestamp, 'MON-DD-YYYY') as timestamp, username FROM messages INNER JOIN users ON messages.user_id = users.user_id"
+      );
       return rows;
     } catch (err) {
       return next(err);

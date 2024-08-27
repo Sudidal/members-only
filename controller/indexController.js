@@ -4,6 +4,7 @@ class IndexController {
   constructor() {}
 
   async indexGet(req, res, next) {
+    console.log(req);
     if (!req.user) {
       return res.redirect("/signin");
     } else if (req.user.membership_status !== true) {
