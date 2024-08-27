@@ -49,6 +49,19 @@ class Queries {
       return next(err);
     }
   }
+
+  // --------UPDATE queries-------
+
+  async updateMemberShip(value, userId, next) {
+    try {
+      await pool.query(
+        "UPDATE users SET membership_status = ($1) WHERE user_id = ($2)",
+        [value, userId]
+      );
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 const queries = new Queries();

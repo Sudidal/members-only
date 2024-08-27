@@ -11,6 +11,7 @@ import { indexRouter } from "./routers/indexRouter.js";
 import { signUpRouter } from "./routers/signUpRouter.js";
 import { signInRouter } from "./routers/signInRouter.js";
 import { signOutRouter } from "./routers/signOutRouter.js";
+import { memberShipRouter } from "./routers/memberShipRouter.js";
 
 passportConfig();
 
@@ -42,6 +43,7 @@ app.get("/", indexRouter);
 app.use("/signup", signUpRouter);
 app.use("/signin", signInRouter);
 app.use("/signout", signOutRouter);
+app.use("/getmembership", memberShipRouter);
 
 app.listen(PORT, () =>
   console.log(
