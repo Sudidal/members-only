@@ -27,6 +27,11 @@ class NewPostController {
     },
     this.newPostGet,
   ];
+
+  async deletePostGet(req, res, next) {
+    await queries.deleteMessage(req.params.postId, next);
+    res.redirect("/");
+  }
 }
 
 const validate = [
@@ -42,5 +47,5 @@ const validate = [
     .withMessage("Post title must be between 1 and 200 characters"),
 ];
 
-const newPostController = new NewPostController();
-export default newPostController;
+const PostsController = new NewPostController();
+export default PostsController;

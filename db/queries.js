@@ -54,7 +54,7 @@ class Queries {
   async getAllMessages(next) {
     try {
       const { rows } = await pool.query(
-        "SELECT title, text, to_char(timestamp, 'MON-DD-YYYY') as timestamp, username FROM messages INNER JOIN users ON messages.user_id = users.user_id"
+        "SELECT message_id, title, text, to_char(timestamp, 'MON-DD-YYYY') as timestamp, username FROM messages INNER JOIN users ON messages.user_id = users.user_id"
       );
       return rows;
     } catch (err) {
@@ -70,6 +70,18 @@ class Queries {
         "UPDATE users SET membership_status = ($1) WHERE user_id = ($2)",
         [value, userId]
       );
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  // --------UPDATE queries-------
+
+  async deleteMessage(messageId, next) {
+    try {
+      await pool.query("DELETE FROM messages WHERE message_id = ($1)", [
+        messageId,
+      ]);
     } catch (err) {
       next(err);
     }
