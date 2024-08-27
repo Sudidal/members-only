@@ -1,0 +1,6 @@
+<div class="messages-container">
+  <% if(locals.messages?.length > 0) { %>
+    <% messages.forEach(mess => { %>
+      <%- include("message", {message: mess.msg ? mess.msg : mess}) %>
+  <%})} %>
+</div>

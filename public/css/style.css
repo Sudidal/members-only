@@ -31,7 +31,6 @@ em {
   flex-direction: column-reverse;
   justify-content: center;
   gap: 20px;
-  order: ;
 }
 
 .post {
@@ -41,6 +40,24 @@ em {
 }
 .post .title {
   margin: 0;
+}
+
+.messages-container {
+  position: absolute;
+  left: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 20vw;
+}
+.message {
+  width: 100%;
+  padding: 0 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  box-shadow: 2px 2px 10px black;
 }
 
 /* Just so i don't lose it  YOU-CAN'T-COPY-THIS-I-HOPE-THERE'S-NO-WORKAROUND-FOR-THIS-ANYWAYS-IF-YOU-ARE-GOING-TO-TYPE-ALL-OF-THIS-YOURSELF-THEN-HAVE-FUN-----OR-YOU-CAN-JUST-COPY-IT-FROM-THE-DEVTOOLS-PANEL---HASD789324osadjff9v07)(*SD8f0sadfklj008 DS*FDSALFJASDF8AS0DF8 KLjosdfDASF8908099435LJ;LADSJFOIouasdjlasjdlL(*^d%sf*&^FJASDLJF800*s)dfASD;LFJ)(*ds)af*90-A)8  */

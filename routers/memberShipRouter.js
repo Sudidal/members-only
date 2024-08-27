@@ -8,7 +8,10 @@ const router = express.Router();
 function get(req, res, next) {
   if (!req.user) return res.redirect("/");
   console.log(req.errorMessages);
-  res.render("getMemberShip", { code: process.env.MEMBERSHIP_CODE });
+  res.render("getMemberShip", {
+    code: process.env.MEMBERSHIP_CODE,
+    errorMessages: req.errorMessages,
+  });
 }
 
 router.get("/", get);
@@ -46,7 +49,7 @@ router.post("/", [
   async (req, res, next) => {
     const errs = validationResult(req);
     if (!errs.isEmpty()) {
-      req.errorMessages = errs;
+      req.errorMessages = errs.array();
       return next();
     }
     await queries.updateMemberShip("true", req.user.user_id, next);

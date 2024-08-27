@@ -8,14 +8,14 @@ class SignUpController {
   signUpGet(req, res, next) {
     if (req.user) return res.redirect("/");
     console.log(req.body.errorMessages);
-    res.render("signUpForm");
+    res.render("signUpForm", { errorMessages: req.body.errorMessages });
   }
   signUpPost = [
     validateUser,
     async (req, res, next) => {
       const errs = validationResult(req);
       if (!errs.isEmpty()) {
-        req.body.errorMessages = errs;
+        req.body.errorMessages = errs.array();
         return next();
       }
       try {

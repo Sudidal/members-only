@@ -1,0 +1,9 @@
+<div class="message">
+  <p> <%= message %> </p>
+  <button onclick="closeMessage(event)">X</button>
+  <script>
+    function closeMessage(ev) {
+      ev.target.parentElement.remove();
+    }
+  </script>
+</div>
