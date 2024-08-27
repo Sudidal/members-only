@@ -7,7 +7,10 @@ class SignInController {
     if (req.user) return res.redirect("/");
     console.log(req.session.messages);
     res.render("signInForm", {
-      errorMessages: [req.session.messages[req.session.messages.length - 1]],
+      errorMessages:
+        req.session?.messages?.length > 0
+          ? [req.session.messages[req.session.messages.length - 1]]
+          : null,
     });
   }
   signInPost = [

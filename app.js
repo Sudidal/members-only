@@ -40,13 +40,21 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
-app.get("/", indexRouter);
+app.get("/throwerr", throwErr);
 
+app.use("/", indexRouter);
 app.use("/signup", signUpRouter);
 app.use("/signin", signInRouter);
 app.use("/signout", signOutRouter);
 app.use("/getmembership", memberShipRouter);
 app.use("/posts", postsRouter);
+app.use("*", (req, res, next) => {
+  res.status(404).render("pageNotFound");
+});
+app.use("/", (err, req, res, next) => {
+  console.error(err);
+  res.status(500).render("serverError");
+});
 
 app.listen(PORT, () =>
   console.log(
@@ -58,3 +66,7 @@ app.listen(PORT, () =>
       "\x1b[0m \n"
   )
 );
+
+function throwErr(req, res, next) {
+  next(new Error("Whoops, I've failed"));
+}
