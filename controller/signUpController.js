@@ -42,19 +42,19 @@ class SignUpController {
 const validateUser = [
   body("first_name")
     .isString()
-    .isLength({ min: 1, max: 20 })
+    .isLength({ min: 1, max: 30 })
     .trim()
-    .withMessage("First name must be between 1 and 20 characters"),
+    .withMessage("First name must be between 1 and 30 characters"),
   body("last_name")
     .isString()
-    .isLength({ min: 1, max: 20 })
+    .isLength({ min: 1, max: 30 })
     .trim()
-    .withMessage("Last name must be between 1 and 20 characters"),
+    .withMessage("Last name must be between 1 and 30 characters"),
   body("username")
     .isString()
-    .isLength({ min: 1, max: 20 })
+    .isLength({ min: 1, max: 40 })
     .trim()
-    .withMessage("Username must be between 1 and 20 characters"),
+    .withMessage("Username must be between 1 and 40 characters"),
   body("password")
     .isString()
     .trim()
